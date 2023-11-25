@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://dd5wgow87o0tk"]
 
-[ext_resource type="Script" path="res://test/scenes/DialogBox.gd" id="1_2c2os"]
-[ext_resource type="Script" path="res://test/scenes/Dialog_test_scene.gd" id="1_30ku4"]
-[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="2_8f3br"]
-[ext_resource type="JSON" path="res://test/scenes/dialog.json" id="2_v0w2p"]
+[ext_resource type="Script" path="res://test/scenes/dialog_testing_Ezra_plugin/Dialog_test_scene.gd" id="1_pgp7p"]
+[ext_resource type="JSON" path="res://test/scenes/dialog_testing_Ezra_plugin/dialog.json" id="2_b8v6q"]
+[ext_resource type="Script" path="res://test/scenes/dialog_testing_Ezra_plugin/DialogBox.gd" id="3_udvni"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="4_5l63b"]
 
 [node name="Dialog_test_scene" type="Node2D"]
-script = ExtResource("1_30ku4")
-dialog_json = ExtResource("2_v0w2p")
+script = ExtResource("1_pgp7p")
+dialog_json = ExtResource("2_b8v6q")
 
 [node name="DialogBox" type="Node2D" parent="."]
-script = ExtResource("1_2c2os")
+script = ExtResource("3_udvni")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogBox"]
 offset_left = 278.0
@@ -23,7 +23,7 @@ layout_mode = 2
 text = "dialogo foda"
 
 [node name="EzDialogue" type="Node" parent="."]
-script = ExtResource("2_8f3br")
+script = ExtResource("4_5l63b")
 
 [connection signal="custom_signal_received" from="EzDialogue" to="." method="_on_ez_dialogue_custom_signal_received"]
 [connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]

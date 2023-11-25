@@ -1,0 +1,24 @@
+~ start
+
+if global.given_item == false
+	c girl: [[Hi|Hello|Howdy]]... how may i help u?
+	- Who are you?
+		c girl: Im THE mother.
+		=> start
+	- I have an item for u :3
+		c girl: OH MA GAAAAAA, FRRRRR?????
+		- yassssss, i found an old photo of ur puppy :3
+			if global.found_item == true
+				c girl: TYSMMM, I MISSED THAT PHOTO SO MUCHHHH
+				set global.given_item = true
+				=> END
+			else
+				c girl: nah bruh thats not my puppy
+				=> END
+		- nah bitch. => END
+	- bye bitch. => END
+else:
+	c girl: [[Hi|Hello|Howdy]], thank u for finding that photo :3
+	=> END
+	
+=> END
