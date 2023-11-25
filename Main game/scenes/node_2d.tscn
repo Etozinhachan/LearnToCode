@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b6wr082jg1b3d"]
 
-[ext_resource type="Texture2D" uid="uid://eew816tarj36" path="res://Main game/assets/sprites/characters/CodiVM-Sheet.png" id="1_3wfr3"]
+[ext_resource type="Texture2D" uid="uid://de70nvfugobfp" path="res://Main game/assets/sprites/characters/CodiVM-Sheet.png" id="1_3wfr3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cu1bf"]
 atlas = ExtResource("1_3wfr3")

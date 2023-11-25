@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5wgow87o0tk"]
+
+[ext_resource type="Script" path="res://test/scenes/DialogBox.gd" id="1_2c2os"]
+[ext_resource type="Script" path="res://test/scenes/Dialog_test_scene.gd" id="1_30ku4"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="2_8f3br"]
+[ext_resource type="JSON" path="res://test/scenes/dialog.json" id="2_v0w2p"]
+
+[node name="Dialog_test_scene" type="Node2D"]
+script = ExtResource("1_30ku4")
+dialog_json = ExtResource("2_v0w2p")
+
+[node name="DialogBox" type="Node2D" parent="."]
+script = ExtResource("1_2c2os")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBox"]
+offset_left = 278.0
+offset_top = 346.0
+offset_right = 318.0
+offset_bottom = 386.0
+
+[node name="Label" type="Label" parent="DialogBox/VBoxContainer"]
+layout_mode = 2
+text = "dialogo foda"
+
+[node name="EzDialogue" type="Node" parent="."]
+script = ExtResource("2_8f3br")
+
+[connection signal="custom_signal_received" from="EzDialogue" to="." method="_on_ez_dialogue_custom_signal_received"]
+[connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]
+[connection signal="end_of_dialogue_reached" from="EzDialogue" to="." method="_on_ez_dialogue_end_of_dialogue_reached"]
