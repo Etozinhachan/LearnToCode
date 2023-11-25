@@ -18,9 +18,22 @@ config/features=PackedStringArray("4.1", "Mobile")
 
 aseprite_executable_path="D:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe"
 
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+global="*res://global.gd"
+
+[dialogue_manager]
+
+general/balloon_path="res://test/scenes/dialog_testing_dialogue_manager/speech_baloon/balloon.tscn"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ez_dialogue/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://test/scenes/dialog_testing_dialogue_manager/dialogues/main.dialogue")
 
 [rendering]
 
