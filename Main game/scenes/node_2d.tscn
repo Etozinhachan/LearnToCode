@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b6wr082jg1b3d"]
 
-[ext_resource type="Texture2D" uid="uid://b7vnwqn5dfk2e" path="res://Main game/assets/sprites/characters/CodiVM-Sheet.png" id="1_3wfr3"]
+[ext_resource type="Texture2D" uid="uid://eew816tarj36" path="res://Main game/assets/sprites/characters/CodiVM-Sheet.png" id="1_3wfr3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cu1bf"]
 atlas = ExtResource("1_3wfr3")
@@ -111,7 +111,7 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(137, 138)
+position = Vector2(280, 164)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_raa7x")
 autoplay = "default"
