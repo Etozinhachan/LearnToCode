@@ -3,8 +3,11 @@ extends CanvasLayer
 
 @onready var balloon: Panel = %Balloon
 @onready var character_label: RichTextLabel = %CharacterLabel
+@onready var portrait: TextureRect = %Portrait
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
+@onready var talk_sound: AudioStreamPlayer = $TalkSound
+@onready var indicator: TextureRect = $Balloon/Indicator
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -13,7 +16,12 @@ var resource: DialogueResource
 var temporary_game_states: Array = []
 
 ## See if we are waiting for the player
-var is_waiting_for_input: bool = false
+var is_waiting_for_input: bool = false:
+	set(value):
+		is_waiting_for_input = value
+		indicator.visible = value
+	get:
+		return is_waiting_for_input
 
 ## See if we are running a long mutation and should hide the balloon
 var will_hide_balloon: bool = false
@@ -32,7 +40,13 @@ var dialogue_line: DialogueLine:
 
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
-
+		var portrait_path: String = "res://Main game/assets/sprites/characters/dialog_portraits/%s.png" % dialogue_line.character.to_lower()
+		if ResourceLoader.exists(portrait_path):
+			portrait.texture = load(portrait_path)
+		else:
+			portrait.texture = null
+		
+		
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
 
@@ -66,6 +80,7 @@ var dialogue_line: DialogueLine:
 
 func _ready() -> void:
 	balloon.hide()
+	indicator.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
 
@@ -121,3 +136,9 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
+
+
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	if not letter in [".", " "]:
+		talk_sound.pitch_scale = randf_range(0.9, 1.1)
+		talk_sound.play()

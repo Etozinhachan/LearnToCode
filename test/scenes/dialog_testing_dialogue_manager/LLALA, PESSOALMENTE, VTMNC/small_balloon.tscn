@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://13s5spsk34qu"]
+[gd_scene load_steps=10 format=3 uid="uid://k1fu0qmwm0v3"]
 
-[ext_resource type="Script" path="res://test/scenes/dialog_testing_dialogue_manager/LLALA, PESSOALMENTE, VTMNC/balloon.gd" id="1_s2gbs"]
-[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_1j1j0"]
+[ext_resource type="Script" path="res://test/scenes/dialog_testing_dialogue_manager/speech_baloon/balloon.gd" id="1_l2w86"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_vvtjb"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_f4cko"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -91,7 +91,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
-script = ExtResource("1_s2gbs")
+script = ExtResource("1_l2w86")
 
 [node name="Balloon" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -128,7 +128,7 @@ text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/Dialogue/VBoxContainer" instance=ExtResource("2_hfvdi")]
+[node name="DialogueLabel" parent="Balloon/Dialogue/VBoxContainer" instance=ExtResource("2_vvtjb")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -153,7 +153,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
-script = ExtResource("3_1j1j0")
+script = ExtResource("3_f4cko")
 
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
